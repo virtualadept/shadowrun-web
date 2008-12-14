@@ -1,0 +1,34 @@
+1. Get jobs finalized
+**DONE** `- Change job generation to (player#/2)+1 moved to subroutine
+**DONE**`- $config activation
+**DONE**`- Vote Script
+**DONE**`- Job Detail Script
+**DONE**`-Money alteration
+**DONE**`- *ST* Job completed/payout
+`- *ST* Job primer generation script
+`- Insert activation into activate
+
+2. Get bank finalized
+**DONE***`- $config activation
+**DONE**`- Xfer funds from party <-> PC
+`- Insert activation into activate
+
+3. Get shops finalized
+`- $config activation
+`- Config hiding/showing
+`- Insert activation into activate
+
+4. Get messages finalized
+`- $config activation
+`- Insert activation into activate
+
+
+5. Get config stuff finalized
+`- $config activation
+`- Activation codes
+`- ST Interface
+`- Insert activation into activate
+
+6. Get index.bml finalized
+`- $config activation
+`- Insert activation into activate
