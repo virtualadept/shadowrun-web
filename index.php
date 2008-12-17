@@ -3,7 +3,7 @@ include "header.php";
 
 // Mail Module
 // ST's get their own query since they are checking multiple accounts.
-if ($config[mail] || $st == '1') {
+if ($config[mail]) {
 if ($st == '1') {
 	if ($unreadlist = $mysqli->prepare("SELECT COUNT(*) FROM mailmsg WHERE mailto IN (SELECT id FROM players WHERE username=?) AND mailread = '0'")) {
 		$unreadlist->bind_param('s',$username);
