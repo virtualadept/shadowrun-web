@@ -60,10 +60,12 @@ if ($st == '1') {
 	}
 	print "</ul></div>";
 } else {
+	print "<div class=entry>
+		<p class=title><a href=\"bank/\">bank module:</a></p>";
 	if ($acctbalance = $mysqli->query("SELECT SUM(transamt) AS cash FROM bank where accountid=$userid")) {
 		$acctres = $acctbalance->fetch_assoc();
 		if (!$acctres['cash']) { $acctres['cash'] = "0"; }
-		print "<li><a href=\"bank/\">bank module:</a> your current balance is <u>" . $acctres['cash'] . "</u>";
+		print "<li>your current balance is <u>" . $acctres['cash'] . "</u>";
 		$acctbalance->close();
 	}
 	if ($acctdatequery = $mysqli->query("SELECT DATE_ADD(date,INTERVAL 70 YEAR) as date FROM bank WHERE accountid=$userid ORDER BY date DESC LIMIT 1")) {
@@ -74,10 +76,11 @@ if ($st == '1') {
 	if ($partybalance = $mysqli->query("SELECT SUM(transamt) AS cash FROM bank where accountid='0'")) {
 		$partyres = $partybalance->fetch_assoc();
 		if (!$partyres['cash']) { $partyres['cash'] = "0"; }
-		print "<li><a href=\"bank/\">bank module:</a> the current party account balance is <u>" . $partyres['cash'] . "</ul></div>";
+		print "<li>the current party account balance is <u>" . $partyres['cash'] . "</ul></div>";
 		$partybalance->close();
 	}
 	
+	print "</ul></div>";
 }
 }
 
@@ -91,6 +94,31 @@ if ($config[job]) {
 		$numactive->close();
 	}
 }
+
+// Karma Module
+print "<div class=entry>
+	<p class=title><a href=\"karma\">karma module:</a></p>";
+
+if ($st) {
+	print "<ul><li>Karma Totals<br>\n";
+	$pcid2un = activeuserid2playername();
+	foreach ($pcid2un as $userid => $username) {
+		print "<ul><li>$username => " . gettotalkarma($userid) . "</ul></li><br>\n";
+	}
+	
+}
+if (!$st) {
+	$totalkarma = gettotalkarma($userid);
+	$compkarma = getcompletedkarma($userid);
+	$pendingkarma = getpendingkarma($userid);
+	print "<ul><li>Your lifetime karma pool is $totalkarma<br>
+		<ul><li>" . abs($pendingkarma) . " are in pending transactions
+		<li>" . abs($compkarma) . " are spent in completed transactions
+		<li> You have " . ($totalkarma + $compkarma + $pendingkarma) . " available to put spending requests for
+		</ul></li>";
+}
+print "</div>";
+
 // New Shop Stuff Module
 
 

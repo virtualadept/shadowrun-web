@@ -3,6 +3,8 @@ include "../header.php";
 $mode = $mysqli->real_escape_string($_GET['mode']);
 $k = $mysqli->real_escape_string($_GET['k']);
 $v = $mysqli->real_escape_string($_GET['v']);
+$karma = $_GET['karma'];
+$knote = $_GET['knote'];
 
 if ($st != '1') {
 	print "go away!";
@@ -10,7 +12,7 @@ if ($st != '1') {
 	exit;
 }
 
-$allmodes = array('config','systemlog','activate','playernotes');
+$allmodes = array('config','systemlog','activate','playernotes','karma');
 if (!$mode) {
 	print "please select which mode you would like to see:<br>\n";
 	foreach ($allmodes as $individualmode) {
@@ -73,7 +75,30 @@ if ($mode == 'playernotes') {
 	}
 }
 
+if ($mode == 'karma') {
+	print "Please Enter Karma<br>\n";
+	$pcid2un = activeuserid2playername();
+	print "<br><form action=\"index.php\" method=\"get\"><br>";
+	foreach ($pcid2un as $id => $playername) {
+		print "<li>Name: $playername<br>
+			   karma: <input type=\"text\" name=\"karma[$id]\" length=\"8\"> | 
+			   note: <input type=\"text\" name=\"knote[$id]\" length=\"48\"><br><br>"; 
 
+	}
+	print "<input type=\"hidden\" name=\"mode\" value=\"addkarma\">
+		<input type=\"submit\" value=\"grant thee karma\">\n";
+}
+
+if ($mode == 'addkarma' && $karma && $knote) {
+	$karmasql = $mysqli->prepare("INSERT INTO karma (playerid,date,karma,note,state) VALUES (?,NOW(),?,?,'C')");
+	foreach ($karma as $id => $karmapoints) {
+		if (!$karmapoints) { continue; };
+		$karmasql->bind_param('sss',$id,$karmapoints,$knote[$id]);
+		$karmasql->execute();
+		print "Entered $id -> $karmapoints ({$knote[$id]})<br>";
+		systemlog('addkarma',"$id recieved $karmapoints karma for {$knote[id]}");	
+	}
+}
 
 include "../footer.php";
 ?> 

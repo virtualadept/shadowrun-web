@@ -284,7 +284,21 @@ function userid2playername() {
 	}                                                                               
 	return $uid2pn;
 }                                                                                                                      
-         
+
+
+function activeuserid2playername() {
+	global $mysqli;
+	if ($getplayername = $mysqli->prepare("SELECT id,playername FROM players WHERE hidden <> '1'")) {
+        	$getplayername->execute();
+        	$getplayername->bind_result($userid,$activeplrname);
+        	while ($getplayername->fetch()) {                                                                              
+                	$activeuid2pn[$userid] = "$activeplrname";                                                                         
+       		}                                                                                                              
+        	$getplayername->close();
+	}                                                                               
+	return $activeuid2pn;
+}                                                                                                                      
+
 function getnpcid() {
 	global $mysqli;
 	if ($getnpcid = $mysqli->prepare("SELECT id,playername FROM players WHERE st = '1'")) {
@@ -296,6 +310,58 @@ function getnpcid() {
 	}
 	return $npc;
 }
+
+
+// -=Karma Management=-
+
+// Total karma accumulated over lifetime of character
+function gettotalkarma($userid) {
+	global $mysqli;
+	if ($karmapctotal = $mysqli->prepare("SELECT SUM(karma) FROM karma WHERE playerid= $userid AND karma > 0")) {
+        	$karmapctotal->execute();
+        	$karmapctotal->bind_result($totalkarma);
+        	$karmapctotal->fetch();
+        	if (!$totalkarma) { $totalkarma = '0'; }
+        	$karmapctotal->close();
+	}
+	return $totalkarma;
+}
+
+// Karma spent on complete transactions
+function getcompletedkarma($userid) {
+	global $mysqli;
+	if ($karmapctotalcomp = $mysqli->prepare("SELECT SUM(karma) FROM karma WHERE playerid= $userid AND karma < 0 AND state = 'C' ")) {
+        	$karmapctotalcomp->execute();
+        	$karmapctotalcomp->bind_result($compkarma);
+        	$karmapctotalcomp->fetch();
+        	if (!$compkarma) { $compkarma = '0'; }
+        	$karmapctotalcomp->close();
+	}
+	return $compkarma;
+}
+
+// Karma tied up in pending transactions
+function getpendingkarma($userid) {
+	global $mysqli;
+	if ($karmapctotalpending = $mysqli->prepare("SELECT SUM(karma) FROM karma WHERE playerid= $userid AND karma < 0 AND state = 'P'")) {
+        	$karmapctotalpending->execute();
+        	$karmapctotalpending->bind_result($pendingkarma);
+        	$karmapctotalpending->fetch();
+        	if (!$pendingkarma) { $pendingkarma = '0'; }
+        	$karmapctotalpending->close();
+	}
+	return $pendingkarma;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 // -=-=-=-=-=-=-=- END OF MY CODE -=-=-=-=-=-=-=-=-=-

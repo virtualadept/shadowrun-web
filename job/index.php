@@ -82,7 +82,7 @@ if ($joblist = $mysqli->prepare("SELECT jobid,DATE_ADD(expdate, INTERVAL 70 YEAR
 			<caption><em>expired (uncompleted) jobs</em></caption>\n
 			<tr><th>expiration date<th>pay<th>description<th>meeting place\n";
 	while ($joblist->fetch()) {
-		print "<tr><th><a href=\"job.php?jobid=$jobid\">$expdate</a><td>$pay<th>$description<th>$meetingplace\n";
+		print "<tr><th>$expdate</a><td>$pay<th>$description<th>$meetingplace\n";
 	}
 	print "</table></center>\n";
 	$joblist->close();

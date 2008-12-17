@@ -52,14 +52,15 @@ if ($mode == 'vote' && $jobid) {
 		print "You have already casted your vote.  You need to wait until next downtime to vote again";
 		exit;
 	} else {
-		print "casting vote for $playername ($userid) for $jobid";
+		print "You have casted your vote for $jobid<br><br>";
 		if ($placevote = $mysqli->prepare("INSERT INTO jobvote (userid,jobid,date) VALUES (?,?,NOW())")) {
 			$placevote->bind_param('ss',$userid,$jobid);
 			$placevote->execute();
 			$placevote->close();
-			addconfig("voted-$userid","$jobid");
+			setconfig("voted-$userid","$jobid");
 			systemlog('job_vote',"$userid voted for $jobid");
-			print "done!";
+			printdots("Processing..........");
+			print "<br>done!";
 		}
 		exit;
 	}

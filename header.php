@@ -38,6 +38,7 @@ if ($config[message]) { print "<li><a href=\"$config[siteroot]inbox/\">Message M
 if ($config[bank]) { print "<li><a href=\"$config[siteroot]bank/\">Bank Module</a><li>\n"; }
 if ($config[shop]) { print "<li><a href=\"$config[siteroot]shop/\">Store Module</a><li>\n"; }
 if ($config[job]) { print "<li><a href=\"$config[siteroot]job/\">Job Module</a><li>\n"; }
+print "<li><a href=\"$config[siteroot]karma/\">Karma Module</a><li>\n"; 
 
 print "</ul>\n
 	</div>\n";
