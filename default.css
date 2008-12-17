@@ -1,0 +1,193 @@
+/*
+   Default page for pavao.org
+   Purple color is #5e008a
+*/
+
+#topLogo
+{
+	margin: 0px;
+	float: right;
+}
+
+body
+{
+	margin-left: 55px;
+	margin-right: 5%;
+	background: white;
+	color: black;
+	font-family: sylfaen, "bookman old style", "new century 
+		schoolbook", serif; 
+}
+
+div.backNav
+{
+	font-size: 80%;
+}
+
+div.top
+{
+	font-family: "Avantgarde Bk BT", AvantGarde, Arial, sans-serif;
+	font-size: 200%;
+	font-style: italic;
+	font-weight: bold;
+	color: #5e008a;
+	line-height: 100%;
+}
+
+div.navMenu
+{
+	background: white;
+	margin-left: 5px;
+	padding: 0em;
+	width: 27%;
+	float: right;
+	display: block;
+}
+
+div.navMenu ul
+ {
+	margin: 0em;
+	padding: 0em;
+	border: 1px black solid;
+	width: 100%;
+ }
+ 
+
+div.navMenu ul li
+{
+	background-color: black;
+	color: ffffff;
+	font-weight: bold;
+	margin: 2px;
+	padding-left: .25em;
+	padding-right: .25em;
+	text-align: right;
+	list-style-type: none;
+}
+
+div.navMenu ul li a
+{
+	display: block;
+	width: 100%;
+}
+
+div.navMenu ul ul
+{
+	background-color: black;
+	color: ffffff;
+	font-weight: bold;
+	margin: 2px;
+	padding-left: .25em;
+	padding-right: .25em;
+}
+
+div.navMenu ul ul li
+{
+	background-color: black;
+	color: ffffff;
+	font-weight: bold;
+	margin: 2px;
+	padding-left: .25em;
+	padding-right: .25em;
+}
+
+div.navMenu ul li:hover
+{
+	background-color: #5e008a;
+}
+ 
+div.navMenu ul ul li:hover
+{
+	background-color: #5e008a;
+}
+
+div.navMenu ul a
+{
+	width: 100%;
+	text-decoration: none;
+}
+
+div.navMenu a:link
+{
+	color: white;
+}
+
+div.navMenu a:visited
+{
+	color: white;
+}
+
+#uRhere
+{
+	background-color: #5e008a;
+}
+
+div.entry
+{
+	padding-left: 0em;
+	padding-right: 2em;
+	padding-bottom: 1em;
+	margin-bottom: 1em;
+	border-top: 1px black solid;
+}
+
+div.entry p
+{
+	padding-left: 2em;
+}
+ 
+div.entry p.title
+{
+	font-family: "Avantgarde Bk BT", Arial, sans-serif;
+	font-size: 150%;
+	color: #5e008a;
+	padding-left: 0em;
+}
+
+
+div.entry p.date
+{
+	margin: .25em;
+	font-size: 60%;    
+	color: #5e008a;
+	float: right;
+}
+
+body a:link
+{
+	color: #5e008a;
+}
+
+body a:visited
+{
+	color: #444444;
+}
+
+div.bottom
+{
+	border-top: 1px solid black;
+	padding: 0em;
+	font-size: 75%
+}
+
+div.rant a:link
+{
+	color: black;
+	text-decoration: none;
+}
+
+div.rant a:hover
+{
+	color: #5e008a;
+}
+
+div.rant a:visited
+{
+	color: black;
+	text-decoration: none;
+}
+
+img
+{
+	border: none;
+}

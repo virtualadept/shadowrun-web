@@ -1,0 +1,98 @@
+/* Shadowrun page(s) */
+
+body
+{
+	background: black url("./circuit.png");
+	background-repeat: repeat-y;
+	background-attachment: fixed;
+	margin-left: 95px;
+	color: white;
+	font-size: 125%;
+
+}
+
+div.navMenu
+{
+	background: #00ff00;
+	margin-left: 5px;
+	padding: 0em;
+	width: 27%;
+	float: right;
+	display: block;
+}
+
+div.navMenu ul
+ {
+	margin: 0em;
+	padding: 0em;
+	border: 1px #00ff00 solid;
+	list-style: none;
+ }
+ 
+
+div.navMenu ul li
+{
+	background-color: black;
+	color: white;
+	font-weight: bold;
+	margin: 2px;
+	padding-left: .25em;
+	padding-right: .25em;
+}
+
+div.entry
+{
+	border-top: 1px #00ff00 solid;
+	min-height: 250px;
+}
+
+div.entry p.title
+{
+	color: #00ff00;
+}
+
+div.navMenu ul li:hover
+{
+	background-color: #006600;
+}
+ 
+div.navMenu ul a
+{
+	text-decoration: none;
+}
+
+div.top
+{
+	font-family: "Avantgarde Bk BT", AvantGarde, Arial, sans-serif;
+	font-size: 200%;
+	font-style: italic;
+	font-weight: bold;
+	color: #22FF22;
+	line-height: 100%;
+}
+
+body a:link
+{
+	color: #00ff00;
+}
+
+body a:visited
+{
+	color: #00aa00;
+}
+
+ul.pages
+{
+	list-style: none;
+}
+
+ul.pages li
+{
+	padding-left: 3em;
+	padding-top: .1em;
+}
+
+p.title a
+{
+	text-decoration: none;
+}
