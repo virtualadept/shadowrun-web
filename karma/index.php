@@ -104,9 +104,22 @@ print "<form action=\"index.php\" method=\"POST\"><br>
 	<input type=\"submit\" value=\"Request Karma Spendage\">
 	</form>";
 
+// Karma reference form
 
-
-
+print "<u>Karma Reference Guide</u><br><br>\n
+	New Specalization -> 2<br>\n
+	New Knowledge/Language skill -> 2<br>\n
+	New Active Skill -> 4<br>\n
+	New Active Skill Group -> 10<br>\n
+	Improving Knowledge/Lang Skill by 1 -> New Rating<br>\n
+	Improving Active Skill by 1 -> New Rating x 2<br>\n
+	Improving an Active Skill Group by 1 -> New Rating x 5<br>\n
+	Improving an Attribute by 1 -> New Rating x 3<br>\n
+	New Postive Quality -> BP Cost x 2<br>\n
+	Removing Negative Quality -> BP Bonus x 2<br>\n
+	New Spell -> 5<br>\n
+	New Complex Form -> 2<br>\n
+	Improving Complex Form by 1 -> New Rating<br>\n";
 
 
 
